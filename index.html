@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <style>
+       [x-cloak]{
+        display: none;
+       } 
+    </style>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>Perfect Pizza</h1>
+
+        <h3>Shopping Cart</h3>
+    </header>
+
+    <div x-data="pizza " x-cloak>
+
+        <div class="small">
+            <div x-show="SMALL">
+                <span>small</span>
+                <button @click="small_increment">+</button>
+                <span x-text="numberOfSmall"></span>
+                <button @click="small_decrement">-</button>
+                <span x-text="smallPrice"></span>
+
+            </div>
+        </div>
+
+        <div class="medium">
+            <div x-show="MEDIUM">
+                <span>medium</span>
+                <button @click="medium_increment">+</button>
+                <span x-text="numberOfMedium"></span>
+                <button @click="medium_decrement">-</button>
+                <span x-text="mediumPrice"></span>
+
+            </div>
+        </div>
+
+        <div class="large">
+            <div x-show="LARGE">
+                <span>large</span>
+                <button @click="large_increment">+</button>
+                <span x-text="numberOfLarge"></span>
+                <button @click="large_decrement">-</button>
+                <span x-text="largePrice"></span>
+
+            </div>
+        </div>
+
+        <p>Total Cost: R<span x-text="totalcost.toFixed(2)"></span></p>
+
+
+
+        <div class="messageAppearHere">
+            <span x-show="successful" style="color: green;">Enjoy your Pizza!</span>
+            <span x-show="unsuccessful" style="color: red;">insufficient funds</span>
+            <span x-show="error" style="color:yellow;">Please select your choice of Pizza!</span>
+        </div>
+
+        <p>Change: R<span x-text="Change.toFixed(2)">20</span>
+        </p>
+        <div x-show="paymentInputBox">
+            <p>Payment Amount <input type="text" x-model="input"></p>
+        </div>
+
+        <div x-show="BtnPay" class="btn">
+            <button @click="pay">Pay</button>
+        </div>
+
+        <div x-show="BtnCheck" class="btn">
+            <button @click="checkout">Checkout</button>
+        </div>
+
+
+        <div class="pizzas">
+            <div class="pizza Small_Pizza">
+                <h2>Small Pizza</h2>
+                <img src="pizza.png" width="75">
+                <h3>R49.00</h3>
+                <div>
+                    <h4>Club</h4>
+                    Ham, bacon, chicken, Perfect sauce
+                </div><br>
+
+                <div>
+                    <button @click="buySmall">Buy</button>
+                </div>
+            </div>
+
+
+
+            <div class=" pizza Medium_Pizza">
+                <h2>Medium Pizza</h2>
+                <img src="pizza (1).png" width="95">
+                <h3>R89.00</h3>
+                <div>
+                    <h4>Tikka Chicken</h4>
+
+                    Chicken, mushroom,sweet bell pepper, onion, Tikka sauce, spring onion
+
+                </div><br>
+
+
+                <div>
+                    <button @click="buyMedium">Buy</button>
+                </div>
+            </div>
+
+
+
+            <div class=" pizza Large_Pizza">
+                <h2>Large Pizza</h2>
+                <img src="pizza (2).png" width="105">
+                <h3>R129.00</h3>
+                <div>
+                    <h4>Mexican Fiesta</h4>
+                    Ground beef, jalapeno, green pepper, onion, Mexican sauce
+                </div><br>
+                <div>
+                    <button @click="buyLarge">Buy</button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class=" pizza Contact_us">
+            <h2>Contact Details</h2>
+
+            contact us @ 021 559 6363 info@perfectpizza.co.za
+        </div>
+
+    </div>
+
+
+
+    <script src="index.js"></script>
+    <script src="price.js"></script>
+</body>
+
+</html>
+
+</body>
+
+</html>
